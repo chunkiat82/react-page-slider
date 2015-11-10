@@ -7,10 +7,17 @@ export default class TestSlider extends React.Component{
     super();
     this.state={'sliderActivated' : false};
     this._handleClick = this._handleClick.bind(this);
+    this._closeClick = this._closeClick.bind(this);
   }
 
-  _handleClick(event) {
-     this.setState({'sliderActivated' : !this.state.sliderActivated});
+  _handleClick(e) {
+    e.preventDefault();
+    this.setState({'sliderActivated' : true});
+  }
+
+  _closeClick(e){
+    e.preventDefault();
+    this.setState({'sliderActivated' : false});
   }
 
   render() {
@@ -26,7 +33,7 @@ export default class TestSlider extends React.Component{
 
     return (      
       <div>
-        <PageSlider show={this.state.sliderActivated}>
+        <PageSlider show={this.state.sliderActivated} close={this._closeClick}>
             <div style={centered}>This is overlay div</div>
         </PageSlider>
         <h1>Page Slider {text}</h1>
