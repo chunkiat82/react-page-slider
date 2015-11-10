@@ -1,4 +1,5 @@
 import React from 'react';
+import PageSlider from '../src/react-page-slider.jsx';
 
 export default class TestSlider extends React.Component{
 
@@ -14,8 +15,9 @@ export default class TestSlider extends React.Component{
 
   render() {
     var text = this.state.sliderActivated ? 'Slider activated' : 'Slider not activated';
-    return (
+    return (      
       <div>
+        <PageSlider show={this.state.sliderActivated}/>
         <h1>{text}</h1>
         <button onClick={this._handleClick}>
           Click to show Slider.
