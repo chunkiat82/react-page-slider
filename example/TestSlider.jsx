@@ -32,14 +32,16 @@ export default class TestSlider extends React.Component{
     }
 
     return (      
-      <div>
+      <div>        
+        <div>
+            <h1>Page Slider {text}</h1>
+            <button onClick={this._handleClick}>
+                Click to activate Slider.
+            </button>
+        </div>
         <PageSlider show={this.state.sliderActivated} close={this._closeClick}>
             <div style={centered}>This is overlay div</div>
         </PageSlider>
-        <h1>Page Slider {text}</h1>
-        <button onClick={this._handleClick}>
-            Click to activate Slider.
-        </button>
       </div>
     );
   }
