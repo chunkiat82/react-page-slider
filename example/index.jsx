@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
 (() => {
-  	const app = document.createElement('div');
+    const app = document.createElement('div');
 
-  	document.body.appendChild(app);
+    document.body.appendChild(app);
 
     var head  = document.getElementsByTagName('head')[0];
     var link  = document.createElement('link');
@@ -15,5 +15,5 @@ import App from './App.jsx';
     link.media = 'all';
     head.appendChild(link);
 
-  	ReactDOM.render(<App />, app);
+    ReactDOM.render(<App />, app);
 })();
