@@ -10,17 +10,28 @@ export default class TestSlider extends React.Component{
   }
 
   _handleClick(event) {
-     this.setState({'sliderActivated' : true});
+     this.setState({'sliderActivated' : !this.state.sliderActivated});
   }
 
   render() {
-    var text = this.state.sliderActivated ? 'Slider activated' : 'Slider not activated';
+    var text = this.state.sliderActivated ? 'Activated' : 'not Activated';
+    var clickText = this.state.sliderActivated ? 'hide' : 'show';
+
+    var centered = {
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
+
     return (      
       <div>
-        <PageSlider show={this.state.sliderActivated}/>
-        <h1>{text}</h1>
+        <PageSlider show={this.state.sliderActivated}>
+            <div style={centered}>This is overlay div</div>
+        </PageSlider>
+        <h1>Page Slider {text}</h1>
         <button onClick={this._handleClick}>
-          Click to show Slider.
+            Click to activate Slider.
         </button>
       </div>
     );
