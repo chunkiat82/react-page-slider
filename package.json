@@ -1,8 +1,8 @@
 {
   "name": "react-page-slider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "To insert an overlay in a page for a customized experience",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "babel ./modules -d lib",
