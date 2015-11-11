@@ -1,11 +1,11 @@
 # react-page-slider
-###Demo
+### Demo
 ![image](https://raw.githubusercontent.com/chunkiat82/react-page-slider/master/demo/demo.gif)
-###Quick Start
+### Quick Start
 * npm install
 * npm start
 
-###Examples
+### Examples
 * Look at TestSlider.jsx for usage
 * Basically it's just a true/false flag
 
@@ -14,4 +14,3 @@
    		content
     </PageSlider>
 ```
-
