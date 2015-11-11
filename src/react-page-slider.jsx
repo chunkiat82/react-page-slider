@@ -9,7 +9,7 @@ export default class PageSlider extends React.Component {
             overflowY: 'auto',
             overflowX: 'hidden',
             marginTop: '150%',
-            position: 'absolute',
+            position: 'fixed',
             background: '#000',
             boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',
             zIndex: '2',

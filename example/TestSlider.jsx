@@ -25,7 +25,7 @@ export default class TestSlider extends React.Component{
     var clickText = this.state.sliderActivated ? 'hide' : 'show';
 
     var centered = {
-      position: 'fixed',
+      position: 'absolute',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)'
