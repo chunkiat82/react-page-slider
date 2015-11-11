@@ -1,0 +1,92 @@
+{
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    },
+
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "array-bracket-spacing": [
+            2,
+            "always"
+        ],
+        "comma-dangle": [
+            2,
+            "never"
+        ],
+        "eol-last": 2,
+        "indent": [
+            2,
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "jsx-quotes": [
+            2,
+            "prefer-double"
+        ],
+        "no-multiple-empty-lines": 2,
+        "no-unused-vars": 2,
+        "no-var": 2,
+        "object-curly-spacing": [
+            2,
+            "always"
+        ],
+        "quotes": [
+            2,
+            "single",
+            "avoid-escape"
+        ],
+        "react/forbid-prop-types": 1,
+        "react/jsx-boolean-value": 1,
+        "react/jsx-closing-bracket-location": 1,
+        "react/jsx-curly-spacing": 1,
+        "react/jsx-indent-props": 1,        
+        "react/jsx-no-bind": 1,
+        "react/jsx-no-duplicate-props": 1,
+        "react/jsx-no-literals": 1,
+        "react/jsx-no-undef": 1,        
+        "react/jsx-sort-prop-types": 1,
+        "react/jsx-sort-props": 1,
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/no-danger": 1,
+        "react/no-did-mount-set-state": 1,
+        "react/no-did-update-set-state": 1,
+        "react/no-direct-mutation-state": 1,
+        "react/no-multi-comp": 1,        
+        "react/no-unknown-property": 1,
+        "react/prefer-es6-class": 1,
+        "react/prop-types": [1,
+            {"ignore":["children"]}
+        ],
+        "react/react-in-jsx-scope": 1,
+        "react/require-extension": 1,
+        "react/self-closing-comp": 1,
+        "react/sort-comp": 1,
+        "react/wrap-multilines": 1,
+        "semi": [
+            2,
+            "always"
+        ],
+        "space-before-blocks": [
+            2,
+            "always"
+        ],
+        "space-before-function-paren": [
+            2,
+            {
+                "anonymous": "always",
+                "named": "never"
+            }
+        ],
+        "strict": 0
+    }
+}
