@@ -1,6 +1,6 @@
 {
   "name": "react-page-slider",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "To insert an overlay in a page for a customized experience",
   "main": "lib/index.js",
   "scripts": {

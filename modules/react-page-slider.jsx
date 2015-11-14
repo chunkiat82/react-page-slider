@@ -45,8 +45,8 @@ class PageSlider extends React.Component {
 }
 
 PageSlider.propTypes = { 
-  close: PropTypes.function,
-  show: PropTypes.boolean
+  close: PropTypes.func,
+  show: PropTypes.bool
 };
 
 PageSlider.defaultProps = { 

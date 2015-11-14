@@ -1,1 +1,4 @@
-export default './react-page-slider.jsx';
+import X from './react-page-slider.jsx';
+
+export default X;
+
