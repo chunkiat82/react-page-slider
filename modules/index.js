@@ -1,1 +1,1 @@
-export default './react-page-slider.jsx'
+export default './react-page-slider.jsx';

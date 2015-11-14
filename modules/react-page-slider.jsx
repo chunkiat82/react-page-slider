@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class PageSlider extends React.Component {
 
@@ -44,9 +44,14 @@ class PageSlider extends React.Component {
   }
 }
 
-PageSlider.propTypes = {
+PageSlider.propTypes = { 
   close: PropTypes.function,
   show: PropTypes.boolean
+};
+
+PageSlider.defaultProps = { 
+  close: (() => {}),
+  show: false
 };
 
 export default PageSlider;
