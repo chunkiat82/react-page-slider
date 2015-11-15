@@ -26,7 +26,7 @@ class TestSlider extends React.Component {
     const slide = [ 'left','right','top','bottom' ][this.state.count];
 
     const customStyle = {
-      backgroundColor: 'black'
+      backgroundColor: '#009cde'
     };
 
     return (      
@@ -39,7 +39,7 @@ class TestSlider extends React.Component {
         </div>
         <PageSlider customStyle={customStyle} show={this.state.sliderActivated} slideFrom={slide}>
             <div>
-              {'This is overlay div'}
+              {'This is overlay div'}<br/>
               <button onClick={this._closeClick}>
                 {'Close'}
               </button>

@@ -1,6 +1,6 @@
 # react-page-slider
 ### Demo
-![image](https://raw.githubusercontent.com/chunkiat82/react-page-slider/4bbe1020e61ec7a2e085735f44f7bffba38d3e71/demo/demo.gif)
+![image](https://raw.githubusercontent.com/wiki/chunkiat82/react-page-slider/images/demo.gif)
 ### Quick Start
 * npm install
 * npm start
