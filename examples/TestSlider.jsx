@@ -1,5 +1,5 @@
 import React from 'react';
-import PageSlider from '../modules/react-page-slider.jsx';
+import PageSlider from '../modules/react-page-slider.js';
 
 class TestSlider extends React.Component {
 
@@ -23,13 +23,10 @@ class TestSlider extends React.Component {
   render() {
     const text = this.state.sliderActivated ? 'Activated' : 'not Activated';
 
-    const centered = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    };
-
+    const customStyle = {
+      backgroundColor: 'white'
+    }
+    
     return (      
       <div>        
         <div>
@@ -38,8 +35,11 @@ class TestSlider extends React.Component {
                 {'Click to activate Slider.'}
             </button>
         </div>
-        <PageSlider close={this._closeClick} show={this.state.sliderActivated}>
-            <div style={centered}>{'This is overlay div'}</div>
+        <PageSlider show={this.state.sliderActivated} customStyle={customStyle}>
+            <div>
+              {'This is overlay div'}
+              <button onClick={this._closeClick}>Close</button>
+            </div>
         </PageSlider>
       </div>
     );
