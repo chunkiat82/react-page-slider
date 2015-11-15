@@ -65,10 +65,10 @@ class PageSlider extends React.Component {
 
 PageSlider.propTypes = { 
   close: PropTypes.func,
-  closeStyle: PropTypes.shape,
+  closeStyle: PropTypes.object,
   closeText: PropTypes.string,
-  customStyle: PropTypes.shape,
-  innerStyle: PropTypes.shape,
+  customStyle: PropTypes.object,
+  innerStyle: PropTypes.object,
   show: PropTypes.bool.isRequired
 };
 
