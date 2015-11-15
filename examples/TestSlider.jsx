@@ -5,23 +5,25 @@ class TestSlider extends React.Component {
 
   constructor() {
     super();
-    this.state={ 'sliderActivated' : false };
+    this.state={ 'sliderActivated' : false , 'count': 0 };
     this._closeClick = this._closeClick.bind(this);
     this._handleClick = this._handleClick.bind(this);    
   }
 
   _closeClick(e) {
     e.preventDefault();
-    this.setState({ 'sliderActivated' : false });
+    this.setState({ 'count': (this.state.count+1) % 4 });
+    this.setState({ 'sliderActivated' : false });    
   }
 
   _handleClick(e) {
     e.preventDefault();
-    this.setState({ 'sliderActivated' : true });
+    this.setState({ 'sliderActivated' : true });    
   }
 
   render() {
     const text = this.state.sliderActivated ? 'Activated' : 'not Activated';
+    const slide = [ 'left','right','top','bottom' ][this.state.count];
 
     const customStyle = {
       backgroundColor: 'black'
@@ -35,7 +37,7 @@ class TestSlider extends React.Component {
                 {'Click to activate Slider.'}
             </button>
         </div>
-        <PageSlider customStyle={customStyle} show={this.state.sliderActivated} slideFrom="right">
+        <PageSlider customStyle={customStyle} show={this.state.sliderActivated} slideFrom={slide}>
             <div>
               {'This is overlay div'}
               <button onClick={this._closeClick}>
