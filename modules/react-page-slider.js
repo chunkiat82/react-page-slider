@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 class PageSlider extends React.Component {
 
-  constructor(){
+  constructor() {
     super();
     this.renderCloseDiv=this.renderCloseDiv.bind(this);    
   }
 
-  renderCloseDiv(){    
-    if (this.props.close){
+  renderCloseDiv() {    
+    if (this.props.close) {
       return (<a href="#" onClick={this.props.close} style={this.props.closeStyle}>
         {this.props.closeText || 'Close'}
       </a>);
@@ -24,8 +24,7 @@ class PageSlider extends React.Component {
       marginTop: '150%',
       position: 'fixed',
       background: '#000',
-      boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',
-      zIndex: '2',
+      boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',      
       WebkitTransition: 'all .8s ease-in-out',
       MozTransition: 'all .8s ease-in-out',
       OTransition: 'all .8s ease-in-out',
@@ -47,11 +46,11 @@ class PageSlider extends React.Component {
     const defaultStyle = {
       backgroundColor : '#009cde', 
       zIndex: '2'
-    }
+    };
 
     const { backgroundColor , zIndex } = this.props.customStyle || defaultStyle;
 
-    const style = this.props.show ? Object.assign({},overlayStyle, slideUp, { backgroundColor } ) : overlayStyle;
+    const style = this.props.show ? Object.assign({},overlayStyle, slideUp, { backgroundColor , zIndex } ) : overlayStyle;
 
     return (
       <div style={style}>
@@ -66,18 +65,20 @@ class PageSlider extends React.Component {
 
 PageSlider.propTypes = { 
   close: PropTypes.func,
-  closeStyle: PropTypes.object,
+  closeStyle: PropTypes.shape,
   closeText: PropTypes.string,
-  innerStyle: PropTypes.object,
-  show: PropTypes.bool.isRequired,
+  customStyle: PropTypes.shape,
+  innerStyle: PropTypes.shape,
+  show: PropTypes.bool.isRequired
 };
 
 PageSlider.defaultProps = { 
   close: undefined,
   closeStyle: undefined,
   closeText: '',
+  customStyle: undefined,
   innerStyle: undefined,
-  show: false,
+  show: false
 };
 
 export default PageSlider;
