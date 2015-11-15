@@ -24,7 +24,7 @@ class TestSlider extends React.Component {
     const text = this.state.sliderActivated ? 'Activated' : 'not Activated';
 
     const customStyle = {
-      backgroundColor: 'white'
+      backgroundColor: 'black'
     };
 
     return (      
@@ -35,7 +35,7 @@ class TestSlider extends React.Component {
                 {'Click to activate Slider.'}
             </button>
         </div>
-        <PageSlider customStyle={customStyle} show={this.state.sliderActivated}>
+        <PageSlider customStyle={customStyle} show={this.state.sliderActivated} slideFrom="right">
             <div>
               {'This is overlay div'}
               <button onClick={this._closeClick}>

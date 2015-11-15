@@ -20,8 +20,7 @@ class PageSlider extends React.Component {
       minWidth: '100%',
       minHeight: '100%',
       overflowY: 'auto',
-      overflowX: 'hidden',
-      marginTop: '150%',
+      overflowX: 'hidden',      
       position: 'fixed',
       background: '#000',
       boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',      
@@ -32,8 +31,39 @@ class PageSlider extends React.Component {
       top:0
     };
 
-    const slideUp = {
-      marginTop: '0%'
+    const behaviour = {
+      right: {
+        hidden: {
+          marginLeft: '100%'
+        },
+        shown: {
+          marginLeft: '0%'
+        }
+      },
+      bottom: {
+        hidden: {
+          marginTop: '100%'
+        },
+        shown: {
+          marginTop: '0%'
+        }
+      },
+      left: {
+        hidden: {
+          marginLeft: '-100%'
+        },
+        shown: {
+          marginLeft: '0%'
+        }
+      },
+      top: {
+        hidden: {
+          marginTop: '-100%'
+        },
+        shown: {
+          marginTop: '0%'
+        }
+      }
     };
 
     const centered = {
@@ -48,9 +78,16 @@ class PageSlider extends React.Component {
       zIndex: '2'
     };
 
+    //extract only styles that are needed
     const { backgroundColor , zIndex } = this.props.customStyle || defaultStyle;
 
-    const style = this.props.show ? Object.assign({},overlayStyle, slideUp, { backgroundColor , zIndex } ) : overlayStyle;
+    const slideStyle = behaviour[this.props.slideFrom];
+
+    //styles used when div is shown/ hidden
+    const shownStyle = Object.assign({}, overlayStyle, slideStyle.shown, { backgroundColor, zIndex });
+    const hiddenStyle = Object.assign({}, overlayStyle, slideStyle.hidden, { backgroundColor, zIndex });
+    
+    const style = this.props.show ? shownStyle  : hiddenStyle;
 
     return (
       <div style={style}>
@@ -69,7 +106,8 @@ PageSlider.propTypes = {
   closeText: PropTypes.string,
   customStyle: PropTypes.object,
   innerStyle: PropTypes.object,
-  show: PropTypes.bool.isRequired
+  show: PropTypes.bool.isRequired,
+  slideFrom: React.PropTypes.oneOf([ 'right', 'bottom', 'left', 'top' ])
 };
 
 PageSlider.defaultProps = { 
@@ -78,7 +116,8 @@ PageSlider.defaultProps = {
   closeText: '',
   customStyle: undefined,
   innerStyle: undefined,
-  show: false
+  show: false,
+  slideFrom: 'bottom'
 };
 
 export default PageSlider;
