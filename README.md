@@ -10,7 +10,7 @@
 * Basically it's just a true/false flag
 
 ```js
-	<PageSlider show={flag} close={this._closeClick}>
-   		content
+	<PageSlider show={state}>
+        {'This is the body text'}
     </PageSlider>
 ```
