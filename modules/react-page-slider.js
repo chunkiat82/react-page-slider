@@ -42,11 +42,12 @@ class PageSlider extends React.Component {
       position: 'fixed',
       background: '#000',
       boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',      
-      WebkitTransition: 'all 1s ease-in-out',
-      MozTransition: 'all 1s ease-in-out',
-      OTransition: 'all 1s ease-in-out',
-      transition: 'all 1s ease-in-out',
-      top:0
+      WebkitTransition: 'all 1s linear',
+      MozTransition: 'all 1s linear',
+      OTransition: 'all 1s linear',
+      transition: 'all 1s linear',
+      top:0,
+      willChange: 'transform'
     };
 
     const defaultStyle = {
