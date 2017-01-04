@@ -13,5 +13,9 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             loader: 'babel'
         }]
+    },
+    externals: {
+        // Use external version of React
+        "react": "React"
     }
 };
