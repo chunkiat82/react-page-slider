@@ -1,5 +1,6 @@
 modules
 examples
 demo
-*/*.js
+*.js
 .*
+README
