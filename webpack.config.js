@@ -21,5 +21,7 @@ module.exports = {
         colors: true
     },
     devtool: 'source-map',
-    plugins: [new HtmlWebpackPlugin()]
+    plugins: [
+        new HtmlWebpackPlugin()
+    ]
 };

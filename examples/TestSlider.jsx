@@ -1,5 +1,5 @@
 import React from 'react';
-import PageSlider from '../modules/react-page-slider.js';
+import PageSlider from '../lib/index.min';
 
 class TestSlider extends React.Component {
 

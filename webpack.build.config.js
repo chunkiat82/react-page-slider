@@ -5,7 +5,9 @@ module.exports = {
     entry: "./modules/index.js",
     output: {
         path: path.resolve(__dirname, 'lib'),
-        filename: "index.js"
+        filename: "index.min.js",
+        library: true,
+        libraryTarget: 'commonjs2'
     },
     module: {
         loaders: [{
@@ -16,6 +18,13 @@ module.exports = {
     },
     externals: {
         // Use external version of React
-        "react": "React"
-    }
+        "react": "react"
+    },
+    plugins: [        
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ]
 };
