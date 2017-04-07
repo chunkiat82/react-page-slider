@@ -4,14 +4,24 @@ class PageSlider extends React.Component {
 
   constructor() {
     super();
-    this.renderCloseDiv=this.renderCloseDiv.bind(this);    
+    this.renderCloseDiv=this.renderCloseDiv.bind(this);
   }
 
   renderCloseDiv() {
-    if (this.props.close) {
-      return (<a href="#" onClick={this.props.close} style={this.props.closeStyle}>
+    const defaultCloseStyle = { position: 'absolute', right: '10px', top: '10px' };
+
+    const closeStyle = Object.assign({}, defaultCloseStyle, this.props.closeStyle);
+
+    if (typeof this.props.close === 'function') {
+      return (<a href="#" onClick={this.props.close} style={closeStyle}>
         {this.props.closeText || 'Close'}
       </a>);
+    } else {
+      return (
+        <div style={closeStyle}>
+          {this.props.close}
+        </div>
+      );
     }
   }
 
@@ -38,10 +48,10 @@ class PageSlider extends React.Component {
       minWidth: '100%',
       minHeight: '100%',
       overflowY: 'auto', //to be checked
-      overflowX: 'hidden', //to be checked     
+      overflowX: 'hidden', //to be checked
       position: 'fixed',
       background: '#000',
-      boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',      
+      boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.6)',
       WebkitTransition: 'all 1s linear',
       MozTransition: 'all 1s linear',
       OTransition: 'all 1s linear',
@@ -51,15 +61,15 @@ class PageSlider extends React.Component {
     };
 
     const defaultStyle = {
-      backgroundColor : '#009cde', 
+      backgroundColor : '#009cde',
       zIndex: '2'
     };
 
-    const { backgroundColor , zIndex } = this.props.customStyle || defaultStyle;
+    const { backgroundColor , zIndex } = Object.assign({}, defaultStyle, this.props.customStyle);
     const behaviour = this.calculateSlidingStyle();
     const shownStyle = Object.assign({}, overlayStyle, behaviour.shown, { backgroundColor, zIndex });
     const hiddenStyle = Object.assign({}, overlayStyle, behaviour.hidden, { backgroundColor, zIndex });
-    
+
     return this.props.show ? shownStyle  : hiddenStyle;
   }
 
@@ -72,18 +82,18 @@ class PageSlider extends React.Component {
       transform: 'translate(-50%, -50%)'
     };
 
-    return this.props.innerStyle || centered;
+    return Object.assign({}, centered, this.props.innerStyle);
   }
 
   render() {
     //extract only styles that are needed
     const outerStyle = this.calculateOuterStyle();
-    const innerStyle = this.calculateInnerStyle();    
+    const innerStyle = this.calculateInnerStyle();
     const closeDiv = this.renderCloseDiv();
 
     return (
       <div style={outerStyle}>
-        {closeDiv}        
+        {closeDiv}
         <div style={innerStyle}>
           {this.props.children}
         </div>
@@ -92,8 +102,8 @@ class PageSlider extends React.Component {
   }
 }
 
-PageSlider.propTypes = { 
-  close: PropTypes.func,
+PageSlider.propTypes = {
+  close: PropTypes.oneOfType([ PropTypes.func, PropTypes.element ]),
   closeStyle: PropTypes.object,
   closeText: PropTypes.string,
   customStyle: PropTypes.object,
@@ -102,12 +112,12 @@ PageSlider.propTypes = {
   slideFrom: React.PropTypes.oneOf([ 'right', 'bottom', 'left', 'top' ])
 };
 
-PageSlider.defaultProps = { 
+PageSlider.defaultProps = {
   close: undefined,
-  closeStyle: undefined,
+  closeStyle: {},
   closeText: '',
-  customStyle: undefined,
-  innerStyle: undefined,
+  customStyle: {},
+  innerStyle: {},
   show: false,
   slideFrom: 'bottom'
 };
