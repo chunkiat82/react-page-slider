@@ -10,7 +10,7 @@
 * Basically it's just a true/false flag
 
 ```js
-	<PageSlider show={state}>
-        {'This is the body text'}
-    </PageSlider>
+<PageSlider show={state}>
+    {'This is the body text'}
+</PageSlider>
 ```
